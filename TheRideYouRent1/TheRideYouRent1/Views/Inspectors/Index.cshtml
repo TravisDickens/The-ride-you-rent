@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TheRideYouRent1.Models.Inspector>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    h2 {
+        text-decoration: underline;
+        font-family: monospace;
+        color: ghostwhite;
+        font-style: normal;
+        text-align: center
+    }
+    th, td {
+        border: 1px solid deepskyblue;
+    }
+
+    .table-background {
+        background: linear-gradient(skyblue,lightgreen);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    p {
+        border: 1px solid deepskyblue;
+        display: inline-block;
+        background: linear-gradient(skyblue,lightgreen);
+        font-size: 20px;
+        color: dodgerblue;
+    }
+
+    th{
+        color:black;
+    }
+</style>
+<h2>Inspectors</h2>
+
+<p>
+    @Html.ActionLink("Add A New Inspector", "Create")
+</p>
+<table class="table table-background">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InspectorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InspectorEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InspectorMobile)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InspectorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InspectorEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InspectorMobile)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InspectorNumber }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InspectorNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InspectorNumber })
+        </td>
+    </tr>
+}
+
+</table>

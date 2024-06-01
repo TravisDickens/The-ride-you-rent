@@ -1,0 +1,81 @@
+﻿@model IEnumerable<TheRideYouRent1.Models.Driver>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    h2 {
+        
+        font-family: monospace;
+        color:ghostwhite;
+        font-style:normal;
+        text-align:center;
+        
+
+    }
+    th, td {
+        border: 1px solid deepskyblue;
+    }
+    .table-background {
+        background: linear-gradient(skyblue,lightgreen);
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+    }
+    p {
+        border: 1px solid deepskyblue;
+        display: inline-block;
+        background: linear-gradient(skyblue,lightgreen);
+        font-size: 20px;
+        color: dodgerblue;
+    }
+    th {
+        color: black;
+    }
+
+</style>
+
+<h2>Drivers</h2>
+
+<p>
+    @Html.ActionLink("Add A New Driver", "Create")
+</p>
+<table class="table table-background">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverMobile)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DriverName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DriverEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DriverMobile)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DriverID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DriverID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DriverID })
+        </td>
+    </tr>
+}
+
+</table>

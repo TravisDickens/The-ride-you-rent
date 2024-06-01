@@ -1,0 +1,97 @@
+﻿@model IEnumerable<TheRideYouRent1.Models.Car>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    h2 {
+        text-decoration: underline;
+        font-family: monospace;
+        color: ghostwhite;
+        font-style: normal;
+        text-align: center
+    }
+
+    th, td {
+        border: 1px solid deepskyblue;
+    }
+
+    .table-background {
+        background: linear-gradient(skyblue,lightgreen);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    p {
+        border: 1px solid deepskyblue;
+        display: inline-block;
+        background: linear-gradient(skyblue,lightgreen);
+        font-size: 20px;
+        color: dodgerblue;
+    }
+    th {
+        color: black;
+    }
+</style>
+<h2>Cars</h2>
+
+<p>
+    @Html.ActionLink("Add a new car", "Create")
+</p>
+<table class="table table-background">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Car_Body_Type.BodyType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car_Make.CarMake)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KilometresTravelled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceKilometres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Available)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Car_Body_Type.BodyType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Car_Make.CarMake)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KilometresTravelled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceKilometres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Available)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CarID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CarID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CarID })
+        </td>
+    </tr>
+}
+
+</table>

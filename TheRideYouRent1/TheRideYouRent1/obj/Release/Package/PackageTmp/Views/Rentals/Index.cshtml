@@ -1,0 +1,87 @@
+﻿@model IEnumerable<TheRideYouRent1.Models.Rental>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    h2 {
+        text-decoration: underline;
+        font-family: monospace;
+        color: ghostwhite;
+        font-style: normal;
+        text-align: center
+    }
+    th, td {
+        border: 1px solid deepskyblue;
+    }
+    .table-background {
+        background: linear-gradient(skyblue,lightgreen);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    p {
+        border: 1px solid deepskyblue;
+        display: inline-block;
+        background: linear-gradient(skyblue,lightgreen);
+        font-size: 20px;
+        color: dodgerblue;
+    }
+    th {
+        color: black;
+    }
+</style>
+<h2>Rentals</h2>
+
+    <p >
+    @Html.ActionLink("Add A New Rental", "Create")
+    </p >
+    <table class="table table-background" >
+    <tr >
+    <th >
+    @Html.DisplayNameFor(model => model.Car.CarNumber)
+    </th >
+    <th >
+    @Html.DisplayNameFor(model => model.Driver.DriverName)
+    </th >
+    <th >
+    @Html.DisplayNameFor(model => model.Inspector.InspectorName)
+    </th >
+    <th >
+    @Html.DisplayNameFor(model => model.RentalFee)
+    </th >
+    <th >
+    @Html.DisplayNameFor(model => model.StartDate)
+    </th >
+    <th >
+    @Html.DisplayNameFor(model => model.EndDate)
+    </th >
+    <th > </th >
+    </tr >
+    @foreach (var item in Model) {
+     <tr >
+    <td >
+    @Html.DisplayFor(modelItem => item.Car.CarNumber)
+    </td >
+    <td >
+    @Html.DisplayFor(modelItem => item.Driver.DriverName)
+    </td >
+    <td >
+    @Html.DisplayFor(modelItem => item.Inspector.InspectorName)
+    </td >
+    <td >
+    @Html.DisplayFor(modelItem => item.RentalFee)
+    </td >
+    <td >
+    @Html.DisplayFor(modelItem => item.StartDate)
+    </td >
+    <td >
+    @Html.DisplayFor(modelItem => item.EndDate)
+    </td >
+    <td >
+    @*@Html.ActionLink("Edit", "Edit", new { id=item.Rentalid }) |*@
+    @Html.ActionLink("Details", "Details", new { id=item.Rentalid }) 
+    @*@Html.ActionLink("Delete", "Delete", new { id=item.Rentalid })*@
+    </td >
+    </tr >
+}
+    </table >
